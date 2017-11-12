@@ -1,0 +1,24 @@
+<!-- list of all availables books -->
+
+
+<div class="row">
+  <!-- here we tell the page that we use the ListBooksController -->
+  <!-- and we initalise the scope by calling books() which get all the books from the API  -->
+<div class ="books" ng-controller="ListBooksController" ng-init="books()">
+<div class="col-md-6 col-md-offset-3">
+  <ul class="sidebarservices">
+        <li class="head">List of Books</li>
+        <!-- ng-repeat : we loop through all the books in the scope   -->
+        <!-- loadbook : HERE WE ADD A LINK FOR EACH BOOK IN CASE OF CLICK (ng-click)  -->
+        <li ng-repeat="x in bookslist"><a href="#" ng-click="loadBook(x.url)">{{x.name}}</a></li>
+      </ul>
+</div>
+</div>
+</div>
+
+<!-- display content of angularJS scope that was acquired by its controllers through GET  -->
+<div class="row">
+  <pre>
+    {{ bookslist | json }}
+  </pre>
+</div>

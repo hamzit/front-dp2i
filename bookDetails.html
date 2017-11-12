@@ -1,0 +1,86 @@
+<!-- BOOK PREVIEW DETAILS  -->
+<div class="row" >
+<div class="details" >
+  <!-- here we tell the page that we use the ListBooksController -->
+  <div class="col-md-6 col-md-offset-3" ng-controller="ListBooksController" >
+      <div class="panel with-nav-tabs panel-primary">
+          <div class="panel-heading">
+              <ul class="nav nav-tabs">
+                  <li>Details</li>
+              </ul>
+          </div>
+
+          <div class="character" >
+            <div class="panel-body">
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="tab1primary">
+                        <table class="table">
+                          <!-- BOOK INFORMATIONS FROM ANGULAR SCOPE -->
+                            <tbody>
+                                <tr>
+                                    <td class="heading-table">Book Name</td>
+                                    <td>:</td>
+                                    <td class="table-name">{{currentBook.name}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="heading-table">Author</td>
+                                    <td>:</td>
+                                    <td class="table-name" ng-repeat="x in currentBook.authors ">{{x}} |</td>
+                                </tr>
+                                <tr>
+                                    <td class="heading-table">ISBN</td>
+                                    <td>:</td>
+                                    <td class="table-name">{{currentBook.isbn}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="heading-table">Pages</td>
+                                    <td>:</td>
+                                    <td class="table-name">{{currentBook.numberOfPages}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="heading-table">Publisher</td>
+                                    <td>:</td>
+                                    <td class="table-name">{{currentBook.publisher}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="heading-table">Country</td>
+                                    <td>:</td>
+                                    <td class="table-name">{{currentBook.country}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="heading-table">Released</td>
+                                    <td>:</td>
+                                    <td class="table-name">{{currentBook.released}}</td>
+                                </tr>
+                                <!-- LOOP THROUGH CHARACTERS variable in rootscope -->
+                                <tr ng-repeat="x in characters">
+                                    <td class="heading-table">Character {{ $index }}</td>
+                                    <td>:</td>
+                                    <td class="table-name">{{x.name}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- display content of angularJS scope that was acquired by its controllers through GET  -->
+<div class="row">
+  <pre>
+    {{ currentBook | json }}
+  </pre>
+</div>
+
+<div class="row">
+  <pre>
+    {{ characters | json }}
+  </pre>
+</div>
